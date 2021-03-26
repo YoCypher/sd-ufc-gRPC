@@ -9,5 +9,8 @@
         <module name="java-grpc" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="java-grpc" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

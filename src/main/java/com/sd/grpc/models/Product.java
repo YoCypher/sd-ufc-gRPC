@@ -57,6 +57,14 @@ public class Product {
 		this.price = price;
 	}
 
+	public Product(com.sd.grpc.rpc.ProductMessage request){
+		this(request.getId(), request.getName(), request.getBrand(), request.getFabricationYear(), request.getModelYear(), request.getPrice());
+	}
+
+	public Product(com.sd.grpc.rpc.CreateProductRequest request) {
+		this(-1, request.getName(), request.getBrand(), request.getFabricationYear(), request.getModelYear(), request.getPrice());
+	}
+
 	public Product(int id, String name, String brand, int fabricationYear, int modelYear, double price) {
 		super();
 		this.id = id;
@@ -65,6 +73,18 @@ public class Product {
 		this.fabricationYear = fabricationYear;
 		this.modelYear = modelYear;
 		this.price = price;
+	}
+
+	public com.sd.grpc.rpc.ProductMessage toProductMessage() {
+		Product product = this;
+		com.sd.grpc.rpc.ProductMessage productMessage = com.sd.grpc.rpc.ProductMessage.newBuilder()
+				.setId(product.getId())
+				.setName(product.getName())
+				.setBrand(product.getBrand())
+				.setFabricationYear(product.getFabricationYear())
+				.setModelYear(product.getModelYear())
+				.setPrice(product.getPrice()).build();
+		return productMessage;
 	}
 
 	@Override
@@ -80,7 +100,4 @@ public class Product {
 			return false;
 		return true;
 	}
-
-	
-	
 }
