@@ -29,7 +29,7 @@
                <button type="button" v-on:click="createCar" >Cadastrar</button> 
                <button type="button" v-on:click="updateCar">Atualizar</button>
                 <button type="button" v-on:click="buscaPorId" >Listar 1</button>
-                 <button type="button" v-on:click="showCar">Listar Todos</button>
+                 <button type="button" v-on:click="mostrarCar">Listar Todos</button>
                <button type="button" v-on:click="deleteCar">Deletar</button>  
             </div>
       </form>
@@ -88,7 +88,7 @@ export default {
           price:"",
           car: {},
           cars: [],
-          mostrarFunc: false,
+          mostrarCar: false,
         };
      },
      created() {
@@ -108,7 +108,7 @@ export default {
                })
                .catch(() => {alert("Ocorreu um erro ao buscar seus dados");
                })
-               this.mostrarFunc = true;
+               this.mostrarCar = true;
           },
           buscaPorId(){
                let obj = {
@@ -125,7 +125,7 @@ export default {
                     })
                     .catch(() => {alert("Ocorreu um erro ao buscar seus dados");
                     })
-                    this.mostrarFunc = true;
+                    this.mostrarCar = true;
                }
           },
           createCar(){
@@ -151,7 +151,7 @@ export default {
                .catch(() => {
                     alert("Ocorreu um erro ao salvar seu funcionário");
                });
-               this.mostrarFunc = true;
+               this.mostrarCar = true;
           },
           updateCar() {
                let obj = {
@@ -176,7 +176,7 @@ export default {
                .catch(() => {
                     alert("Ocorreu um erro ao atualizar o funcionário");
                });
-               this.mostrarFunc = true;
+               this.mostrarCar = true;
           },
           deleteCar() {
                let obj = {
