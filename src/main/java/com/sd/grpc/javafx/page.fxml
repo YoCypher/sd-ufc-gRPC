@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sd.grpc.javafx.CarController">
+   <children>
+      <VBox layoutX="51.0" layoutY="44.0">
+         <children>
+            <Label text="Name" />
+            <TextField fx:id="nameInput" prefHeight="26.0" prefWidth="340.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="51.0" layoutY="94.0">
+         <children>
+            <Label text="Brand" />
+            <TextField fx:id="brandInput" prefHeight="26.0" prefWidth="340.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="51.0" layoutY="147.0">
+         <children>
+            <Label text="Frabrication Year" />
+            <TextField fx:id="fabricationYearInput" prefHeight="26.0" prefWidth="340.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="51.0" layoutY="204.0">
+         <children>
+            <Label text="Model Year" />
+            <TextField fx:id="modelYearInput" prefHeight="26.0" prefWidth="340.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="51.0" layoutY="263.0">
+         <children>
+            <Label text="Price" />
+            <TextField fx:id="priceInput" prefHeight="26.0" prefWidth="340.0" />
+         </children>
+      </VBox>
+      <Button layoutX="51.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleCreate" prefHeight="26.0" prefWidth="144.0" text="Create" />
+      <TextField fx:id="carIdInput" layoutX="227.0" layoutY="319.0" prefHeight="26.0" prefWidth="54.0" />
+      <Button layoutX="293.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleFindById" prefHeight="26.0" prefWidth="99.0" text="Find by Id" />
+      <Button layoutX="227.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="26.0" prefWidth="166.0" text="Update" />
+      <Button layoutX="227.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="26.0" prefWidth="166.0" text="Delete" />
+      <Button layoutX="51.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="26.0" prefWidth="144.0" text="Clear" />
+      <Button layoutX="51.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleListAll" prefHeight="26.0" prefWidth="144.0" text="List All" />
+      <ListView fx:id="carList" layoutX="451.0" layoutY="75.0" prefHeight="348.0" prefWidth="380.0" />
+      <Label layoutX="451.0" layoutY="57.0" text="Car List" />
+   </children>
+</Pane>

@@ -2,7 +2,7 @@ syntax = "proto3";
 option java_multiple_files = true;
 package com.sd.grpc.rpc;
 
-message ProductMessage{
+message CarMessage{
   int32 id = 1;
   string name = 2;
   string brand = 3;
@@ -11,16 +11,16 @@ message ProductMessage{
   double price = 6;
 }
 
-service ProductRPC {
-  rpc Create(CreateProductRequest) returns (CreateProductResponse) {}
-  rpc Update(UpdateProductRequest) returns (UpdateProductResponse) {}
+service CarRPC {
+  rpc Create(CreateCarRequest) returns (CreateCarResponse) {}
+  rpc Update(UpdateCarRequest) returns (UpdateCarResponse) {}
   rpc FindById(FindByIdRequest) returns (FindByIdResponse) {}
-  rpc FindAll(FindByIdRequest) returns (FindAllResponse) {}
+  rpc FindAll(FindAllRequest) returns (FindAllResponse) {}
   rpc Delete(DeleteRequest) returns (DeleteResponse) {}
 }
 
 
-message CreateProductRequest {
+message CreateCarRequest {
   string name = 1;
   string brand = 2;
   int32 fabricationYear = 3;
@@ -28,16 +28,16 @@ message CreateProductRequest {
   double price = 5;
 }
 
-message CreateProductResponse {
-  ProductMessage product = 1;
+message CreateCarResponse {
+  CarMessage car = 1;
 }
 
-message UpdateProductRequest {
-  ProductMessage product = 1;
+message UpdateCarRequest {
+  CarMessage car = 1;
 }
 
-message UpdateProductResponse {
-  ProductMessage product = 1;
+message UpdateCarResponse {
+  CarMessage car = 1;
 }
 
 message FindByIdRequest {
@@ -45,16 +45,16 @@ message FindByIdRequest {
 }
 
 message FindByIdResponse {
-  ProductMessage product = 1;
+  CarMessage car = 1;
 }
 
 message FindAllRequest {}
 message FindAllResponse {
-  repeated ProductMessage products = 1;
+  repeated CarMessage car = 1;
 }
 
 message DeleteRequest {
-  ProductMessage product = 1;
+  CarMessage car = 1;
 }
 
 message DeleteResponse {}

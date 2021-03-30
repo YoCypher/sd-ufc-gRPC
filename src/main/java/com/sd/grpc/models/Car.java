@@ -1,6 +1,6 @@
 package com.sd.grpc.models;
 
-public class Product {
+public class Car {
 
 	private int id;
 	private String name;
@@ -57,15 +57,15 @@ public class Product {
 		this.price = price;
 	}
 
-	public Product(com.sd.grpc.rpc.ProductMessage request){
+	public Car(com.sd.grpc.rpc.CarMessage request){
 		this(request.getId(), request.getName(), request.getBrand(), request.getFabricationYear(), request.getModelYear(), request.getPrice());
 	}
 
-	public Product(com.sd.grpc.rpc.CreateProductRequest request) {
+	public Car(com.sd.grpc.rpc.CreateCarRequest request) {
 		this(-1, request.getName(), request.getBrand(), request.getFabricationYear(), request.getModelYear(), request.getPrice());
 	}
 
-	public Product(int id, String name, String brand, int fabricationYear, int modelYear, double price) {
+	public Car(int id, String name, String brand, int fabricationYear, int modelYear, double price) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -75,15 +75,32 @@ public class Product {
 		this.price = price;
 	}
 
-	public com.sd.grpc.rpc.ProductMessage toProductMessage() {
-		Product product = this;
-		com.sd.grpc.rpc.ProductMessage productMessage = com.sd.grpc.rpc.ProductMessage.newBuilder()
-				.setId(product.getId())
-				.setName(product.getName())
-				.setBrand(product.getBrand())
-				.setFabricationYear(product.getFabricationYear())
-				.setModelYear(product.getModelYear())
-				.setPrice(product.getPrice()).build();
+	public String toLine() {
+		StringBuilder sb = new StringBuilder("");
+		sb.append("Id: ")
+				.append(id)
+				.append("\nName: ")
+				.append(name)
+				.append("\nBrand: ")
+				.append(brand)
+				.append("\nFabrication Year: ")
+				.append(fabricationYear)
+				.append("\nModel Year: ")
+				.append(modelYear)
+				.append("\nPrice: ")
+				.append(price);
+		return sb.toString();
+	}
+
+	public com.sd.grpc.rpc.CarMessage toCarMessage() {
+		Car car = this;
+		com.sd.grpc.rpc.CarMessage productMessage = com.sd.grpc.rpc.CarMessage.newBuilder()
+				.setId(car.getId())
+				.setName(car.getName())
+				.setBrand(car.getBrand())
+				.setFabricationYear(car.getFabricationYear())
+				.setModelYear(car.getModelYear())
+				.setPrice(car.getPrice()).build();
 		return productMessage;
 	}
 
@@ -95,7 +112,7 @@ public class Product {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Product other = (Product) obj;
+		Car other = (Car) obj;
 		if (id != other.id)
 			return false;
 		return true;
